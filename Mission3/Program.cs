@@ -7,11 +7,12 @@ namespace Mission3
         // player 1 = x palyer 2 = o
         static void Main(string[] args)
         {
+            Ticker TKR = new Ticker();
             Console.WriteLine("Welcome to the game dude!");
             int[] game_board = new int[9];
-            printBoard(game_board);
+            TKR.printBoard(game_board);
 
-            int winCheck = winCheck();
+            int winCheck = TKR.winCheck(game_board);
 
             if (winCheck == 4)
             {
@@ -26,13 +27,13 @@ namespace Mission3
                         {
                             Console.WriteLine("Already Chosen. Player 1 Choice: ");
                             game_board[i] = Convert.ToInt32(Console.ReadLine());
-                            printBoard(game_board);
+                            TKR.printBoard(game_board);
 
                         }
                         else
                         {
                             game_board[i] = answer;
-                            printBoard(game_board);
+                            TKR.printBoard(game_board);
                         }
                     }
                     else
@@ -44,12 +45,12 @@ namespace Mission3
                         {
                             Console.WriteLine("Already Chosen. Player 2 Choice: ");
                             game_board[i] = Convert.ToInt32(Console.ReadLine());
-                            printBoard(game_board);
+                            TKR.printBoard(game_board);
                         }
                         else
                         {
                             game_board[i] = answer;
-                            printBoard(game_board);
+                            TKR.printBoard(game_board);
                         }
                     }
                 }
