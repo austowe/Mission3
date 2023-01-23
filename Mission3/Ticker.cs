@@ -19,11 +19,11 @@ namespace Mission3
                 {
                     if (board[i] == 1)
                     {
-                        characters[i] = "o";
+                        characters[i] = "O";
                     }
                     else
                     {
-                        characters[i] = "x";
+                        characters[i] = "X";
                     }
                 }
                 else
