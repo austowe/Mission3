@@ -4,7 +4,7 @@ namespace Mission3
 {
     class Driver
     {
-        // player 1 = x palyer 2 = o
+        // player 1 = x player 2 = o
         static void Main(string[] args)
         {
             Ticker TKR = new Ticker();
@@ -12,61 +12,65 @@ namespace Mission3
             int[] game_board = new int[9];
             TKR.printBoard(game_board);
 
-            int winCheck = TKR.winCheck(game_board);
-
-            if (winCheck == 4)
+            for (int i = 0; i < 10; i++)
             {
-                for (int i = 0; i < 9; i++)
+                int winCheck = TKR.winCheck(game_board);
+                if (winCheck == 4)
                 {
                     if (i % 2 == 0)
                     {
-                        Console.WriteLine("Player 1 Choice: ");
+                        Console.WriteLine("X's Choice: ");
                         int answer = Convert.ToInt32(Console.ReadLine());
                         bool exists = Array.Exists(game_board, element => element == answer);
-                        if (exists)
+                        while (exists)
                         {
-                            Console.WriteLine("Already Chosen. Player 1 Choice: ");
-                            game_board[i] = Convert.ToInt32(Console.ReadLine());
-                            TKR.printBoard(game_board);
-
+                            Console.WriteLine("Already Chosen. X's Choice: ");
+                            int new_answer = Convert.ToInt32(Console.ReadLine());
+                            exists = Array.Exists(game_board, element => element == new_answer);
+                            if (!exists)
+                            {
+                                game_board[new_answer - 1] = (2);
+                                TKR.printBoard(game_board);
+                            }
                         }
-                        else
-                        {
-                            game_board[i] = answer;
-                            TKR.printBoard(game_board);
-                        }
+                        game_board[answer - 1] = (2);
+                        TKR.printBoard(game_board);
                     }
                     else
                     {
-                        Console.WriteLine("Player 2 Choice: ");
+                        Console.WriteLine("O's Choice: ");
                         int answer = Convert.ToInt32(Console.ReadLine());
                         bool exists = Array.Exists(game_board, element => element == answer);
-                        if (exists)
+                        while (exists)
                         {
-                            Console.WriteLine("Already Chosen. Player 2 Choice: ");
-                            game_board[i] = Convert.ToInt32(Console.ReadLine());
-                            TKR.printBoard(game_board);
+                            Console.WriteLine("Already Chosen. O's Choice: ");
+                            int new_answer = Convert.ToInt32(Console.ReadLine());
+                            exists = Array.Exists(game_board, element => element == new_answer);
+                            if (!exists)
+                            {
+                                game_board[new_answer - 1] = (1);
+                                TKR.printBoard(game_board);
+                            }
                         }
-                        else
-                        {
-                            game_board[i] = answer;
-                            TKR.printBoard(game_board);
-                        }
+                        game_board[answer - 1] = (1);
+                        TKR.printBoard(game_board);
                     }
                 }
-
-            }
-            else if (winCheck == 1)
-            {
-                Console.WriteLine("Player 1 Wins!");
-            }
-            else if (winCheck == 2)
-            {
-                Console.WriteLine("Player 2 Wins!");
-            }
-            else 
-            {
-                Console.WriteLine("It's a Draw!");
+                else if (winCheck == 1)
+                {
+                    Console.WriteLine("X's Wins!");
+                    break;
+                }
+                else if (winCheck == 2)
+                {
+                    Console.WriteLine("O's Wins!");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("It's a Draw!");
+                    break;
+                }
             }
         }
     }
