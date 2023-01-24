@@ -1,8 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+// X == 1, O == 2
 
 namespace Mission3
 {
@@ -19,11 +21,11 @@ namespace Mission3
                 {
                     if (board[i] == 1)
                     {
-                        characters[i] = "O";
-                    }
-                    else
-                    {
                         characters[i] = "X";
+                    }
+                    else if (board[i] == 2)
+                    {
+                        characters[i] = "O";
                     }
                 }
                 else
@@ -68,11 +70,11 @@ namespace Mission3
                     score = (board[i] + board[i + 1] + board[i + 2]);
                     if (score == 6)
                     {
-                        return 1;
+                        return 2;
                     }
                     else if (score == 3)
                     {
-                        return 2;
+                        return 1;
                     }
                 }
                 empty = false;
@@ -92,11 +94,11 @@ namespace Mission3
                     score = (vertical[i] + vertical[i + 1] + vertical[i + 2]);
                     if (score == 6)
                     {
-                        return 1;
+                        return 2;
                     }
                     else if (score == 3)
                     {
-                        return 2;
+                        return 1;
                     }
                 }
                 empty = false;
@@ -119,11 +121,11 @@ namespace Mission3
             {
                 if (score == 6)
                 {
-                    return 1;
+                    return 2;
                 }
                 else if (score == 3)
                 {
-                    return 2;
+                    return 1;
                 }
             }
             empty = false;
@@ -145,11 +147,11 @@ namespace Mission3
             {
                 if (score == 6)
                 {
-                    return 1;
+                    return 2;
                 }
                 else if (score == 3)
                 {
-                    return 2;
+                    return 1;
                 }
             }
             empty = false;
