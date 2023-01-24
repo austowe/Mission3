@@ -56,11 +56,11 @@ namespace Mission3
             int[] vertical = { board[0], board[3], board[6], board[1], board[4], board[7], board[2], board[5], board[8] };
 
             //check for horizontal wins
-            for (int i = 0; i < 3; i = i + 3)
+            for (int i = 0; i < 9; i = i + 3)
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    if (board[j] == 0)
+                    if (board[j + i] == 0)
                     {
                         empty = true;
                     }
@@ -80,11 +80,11 @@ namespace Mission3
                 empty = false;
             }
             //check for vertical wins
-            for (int i = 0; i < 3; i = i + 3)
+            for (int i = 0; i < 9; i = i + 3)
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    if (vertical[j] == 0)
+                    if (vertical[j + i] == 0)
                     {
                         empty = true;
                     }
