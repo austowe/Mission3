@@ -13,7 +13,7 @@ namespace Mission3
 
             Ticker TKR = new Ticker();
             // Welcome Message
-            Console.WriteLine("Welcome to the game, dude(tte)!");
+            Console.WriteLine("Welcome to the game, dude(tte)!\n");
             int[] game_board = new int[9];
             int answer = 0;
             string playerLetter = "";
@@ -48,8 +48,8 @@ namespace Mission3
                     }
 
                     // Player enters their choice
-                    Console.WriteLine("Player " + playerLetter + "'s turn! Enter your choice: ");
                     TKR.printBoard(game_board);
+                    Console.WriteLine("Player " + playerLetter + "'s turn! Enter your choice: ");
 
                     // NUMERIC 1-9 INPUT CHECK (same code used two times, could be moved to a separate function) ----------------------------
                     answer = 0;

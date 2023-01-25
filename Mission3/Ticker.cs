@@ -33,6 +33,7 @@ namespace Mission3
 
         public void printBoard(int[] board)
         {
+            //output board
             string[] characters = new string[9];
             int position = 0;
 
