@@ -10,6 +10,27 @@ namespace Mission3
 {
     class Ticker
     {
+        public void printCharColored(string character)
+        {
+            if (character == "X")
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write(character);
+                Console.ResetColor();
+            }
+            else if (character == "O")
+            {
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.Write(character);
+                Console.ResetColor();
+            }
+            else
+            {
+                Console.Write(character);
+            }
+            
+        }
+
         public void printBoard(int[] board)
         {
             string[] characters = new string[9];
@@ -35,11 +56,12 @@ namespace Mission3
                 }
             }
 
-            Console.WriteLine(" " + characters[0] + " | " + characters[1] + " | " + characters[2]);
-            Console.WriteLine("-----------");
-            Console.WriteLine(" " + characters[3] + " | " + characters[4] + " | " + characters[5]);
-            Console.WriteLine("-----------");
-            Console.WriteLine(" " + characters[6] + " | " + characters[7] + " | " + characters[8]);
+            Console.Write(" "); printCharColored(characters[0]); Console.Write(" | "); printCharColored(characters[1]); Console.Write(" | "); printCharColored(characters[2]);
+            Console.WriteLine("\n-----------");
+            Console.Write(" "); printCharColored(characters[3]); Console.Write(" | "); printCharColored(characters[4]); Console.Write(" | "); printCharColored(characters[5]);
+            Console.WriteLine("\n-----------");
+            Console.Write(" "); printCharColored(characters[6]); Console.Write(" | "); printCharColored(characters[7]); Console.Write(" | "); printCharColored(characters[8]); 
+            Console.Write("\n\n");
 
         }
 
